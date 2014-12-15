@@ -1,3 +1,8 @@
+About this package
+==================
+
+Wanted a composer compatible library for docusign and they
+
 DocuSign eSign PHP Client Library
 ================================
 

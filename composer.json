@@ -1,0 +1,15 @@
+{
+    "name": "mrferos/docusign-lib",
+    "description": "Composer compatiable port of the official DocuSign lib",
+    "authors": [
+        {
+            "name": "Andres Galindo",
+            "email": "andres.galindo@flexshopper.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/DocuSign_Client.php"
+        ]
+    }
+}
