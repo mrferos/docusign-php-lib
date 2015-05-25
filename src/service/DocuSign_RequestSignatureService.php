@@ -45,7 +45,8 @@ class DocuSign_RequestSignatureResource extends DocuSign_Resource {
 												, $templateId
 												, $status = "created"
 												, $templateRoles = array()
-												, $eventNotifications = array() ) {
+												, $eventNotifications = array() 
+												, $tabs = array()) {
 		$url = $this->client->getBaseURL() . '/envelopes';
 		$data = array (
 			"emailSubject" => $emailSubject,
@@ -59,7 +60,8 @@ class DocuSign_RequestSignatureResource extends DocuSign_Resource {
 				array_push($templateRolesList, array (
 					"roleName" => $templateRole->getRolename(),
 					"name" => $templateRole->getName(),
-					"email" => $templateRole->getEmail()
+					"email" => $templateRole->getEmail(),
+					"tabs" => $templateRole->getTabs()
 				));
 			}
 			$data['templateRoles'] = $templateRolesList;
@@ -269,11 +271,13 @@ class DocuSign_TemplateRole extends DocuSign_Model {
 	private $roleName;
 	private $name;
 	private $email;
+    private $tabs;
 
-	public function __construct($roleName, $name, $email) {
+	public function __construct($roleName, $name, $email, $tabs) {
 		if( isset($roleName) ) $this->roleName = $roleName;
 		if( isset($name) ) $this->name = $name;
 		if( isset($email) ) $this->email = $email;
+        if( isset($tabs) ) $this->tabs = $this->setTabs($tabs);
 	}
 
   	public function setRoleName($roleName) { $this->roleName = $roleName; }
@@ -282,6 +286,18 @@ class DocuSign_TemplateRole extends DocuSign_Model {
 	public function getName() { return $this->name; }
 	public function setEmail($email) { $this->email = $email; }
 	public function getEmail() { return $this->email; }
+	public function getTabs() { return $this->tabs; }
+	public function setTabs($namedArray) { 
+        $textTabs = array("textTabs" => array());
+        if(!is_array($namedArray)) return $textTabs;
+        foreach($namedArray as $k => $v) {
+            $textTabs['textTabs'][] = array(
+                "tabLabel"   => $k,
+                "value"      => $v
+            );
+        }
+        return $textTabs;
+    }
 }
 
 
