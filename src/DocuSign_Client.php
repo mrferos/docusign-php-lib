@@ -39,6 +39,7 @@ require_once 'io/DocuSign_Creds.php';
 require_once 'io/DocuSign_CurlIO.php';
 require_once 'service/DocuSign_Model.php';
 require_once 'service/DocuSign_Resource.php';
+require_once 'service/DocuSign_RequestSignatureService.php';
 
 class DocuSign_Client {
 
