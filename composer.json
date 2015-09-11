@@ -7,9 +7,13 @@
             "email": "andres.galindo@flexshopper.com"
         }
     ],
-    "autoload": {
-        "files": [
-            "src/DocuSign_Client.php"
-        ]
+    "repositories": [
+        {
+            "url": "https://github.com/docusign/DocuSign-PHP-Client.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "larrykluger/docusign-lib": "dev-master"
     }
 }
