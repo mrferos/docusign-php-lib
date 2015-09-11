@@ -1,7 +1,7 @@
 READ ME
 =======
 
-DocuSign's official lib no includes a composer.json file and it can be installed by dropping the following
+DocuSign's official lib now includes a composer.json file and it can be installed by dropping the following
 in your composer.json file:
 ```json
     "repositories": [
@@ -17,3 +17,5 @@ in your composer.json file:
 
 I'm leaving this here for convenience but please defer to the official lib located here:
 https://github.com/docusign/DocuSign-PHP-Client
+
+This package just installs the official package now.
